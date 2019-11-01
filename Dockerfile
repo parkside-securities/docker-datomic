@@ -19,8 +19,6 @@ ONBUILD RUN curl -u $(cat /tmp/.credentials) -SL https://my.datomic.com/repo/com
   && unzip /tmp/datomic.zip -d /opt \
   && rm -f /tmp/datomic.zip
 
-ONBUILD ADD config $DATOMIC_HOME/config
-
 WORKDIR $DATOMIC_HOME
 RUN echo DATOMIC HOME: $DATOMIC_HOME
 ENTRYPOINT ["./bin/transactor"]
